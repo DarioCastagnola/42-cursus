@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:18:37 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/01/18 17:04:57 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:27:41 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdlib.h>
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);

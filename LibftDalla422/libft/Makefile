@@ -6,7 +6,7 @@
 #    By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 10:51:32 by dcastagn          #+#    #+#              #
-#    Updated: 2023/01/20 11:57:52 by dcastagn         ###   ########.fr        #
+#    Updated: 2023/01/20 16:07:26 by dcastagn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,10 @@ SRCS = ft_isalnum.c  \
 FLAGS = -Wall -Wextra -Werror
 CC = gcc
 OBJS = $(SRCS:.c=.o)
-$(NAME):
-	$(CC) -c $(FLAGS) $(SRCS) ar rcs $(NAME) $(OBJS) rm *.o
+.o:.c
+	$(CC) $(FLAGS) -c $< -o ${<:.c=.o}
+$(NAME): ${OBJS}
+	ar rcs $(NAME) $(OBJS)
 all: $(NAME)
 clean:
 	rm -f $(OBJS)
