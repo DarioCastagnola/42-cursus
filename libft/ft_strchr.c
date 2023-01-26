@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strchr.c                                           :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ametta <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 15:49:36 by ametta            #+#    #+#             */
-/*   Updated: 2021/01/13 12:42:11 by ametta           ###   ########.fr       */
+/*   Created: 2023/01/18 14:39:54 by dcastagn          #+#    #+#             */
+/*   Updated: 2023/01/23 17:08:03 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t i;
+	int	i;
 
 	i = 0;
-	while (s[i] != c && s[i] != '\0')
+	while (s[i] != (char)c && s[i] != '\0')
 	{
 		i++;
 	}
-	if (s[i] == c)
-	{
-		return ((char*)s + i);
-	}
-	return (NULL);
+	if (c == '\0')
+		return ((char *)&s[i]);
+	if (s[i] == '\0')
+		return (NULL);
+	return ((char *)&s[i]);
 }

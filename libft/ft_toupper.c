@@ -3,19 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ametta <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/14 11:47:56 by ametta            #+#    #+#             */
-/*   Updated: 2021/01/20 11:45:45 by ametta           ###   ########.fr       */
+/*   Created: 2023/01/16 16:50:22 by dcastagn          #+#    #+#             */
+/*   Updated: 2023/01/23 16:14:50 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <unistd.h>
 #include "libft.h"
 
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	else
-		return (c);
+		c = c - 32;
+	return (c);
 }
+/*
+int main(void)
+{
+	int c;
+	int f;
+
+	c = 'b';
+	f = ft_toupper(c);
+	write(1, &f, 1);
+}
+*/

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memmove.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ametta <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 12:23:17 by ametta            #+#    #+#             */
-/*   Updated: 2021/01/13 12:42:01 by ametta           ###   ########.fr       */
+/*   Created: 2023/01/20 11:22:45 by dcastagn          #+#    #+#             */
+/*   Updated: 2023/01/24 10:30:13 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,27 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t i;
+	int	i;
 
 	if (!dst && !src)
-		return (NULL);
-	i = 0;
-	if (dst - src > 0)
+		return (0);
+	if (dst > src)
 	{
-		while (len > 0)
+		i = len - 1;
+		while (i >= 0)
 		{
-			len--;
-			((char*)dst)[len] = ((char*)src)[len];
+			((char *)dst)[i] = ((char *)src)[i];
+			i--;
 		}
-		return (dst);
 	}
-	while (i < len)
+	else
 	{
-		((char *)dst)[i] = ((char *)src)[i];
-		i++;
+		i = 0;
+		while (i < len)
+		{
+			((char *)dst)[i] = ((char *)src)[i];
+			i++;
+		}
 	}
-	return (dst);
+	return ((void *) dst);
 }

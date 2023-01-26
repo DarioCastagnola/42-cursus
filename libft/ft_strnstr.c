@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ametta <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/13 14:12:32 by ametta            #+#    #+#             */
-/*   Updated: 2021/01/14 11:26:46 by ametta           ###   ########.fr       */
+/*   Created: 2023/01/20 14:40:34 by dcastagn          #+#    #+#             */
+/*   Updated: 2023/01/24 16:34:02 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,26 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	j = 0;
-	while (haystack[i] && needle[j] && len > 0)
+	if (!haystack && !len)
+		return (0);
+	if (needle[0] == '\0' || needle == haystack)
+		return ((char *)haystack);
+	while (haystack[i] != '\0')
 	{
 		j = 0;
-		if (needle[j] != haystack[i])
+		while (haystack[i + j] == needle[j] && i + j < len)
 		{
-			i++;
-			len--;
-		}
-		while (needle[j] == haystack[i] && len > 0 && haystack[i])
-		{
+			if (haystack[i + j] == '\0' && needle[j] == '\0')
+				return ((char *)&haystack[i]);
 			j++;
-			i++;
-			len--;
 		}
+		if (needle[j] == '\0')
+			return ((char *)haystack + (char)i);
+		i++;
 	}
-	if (needle[j] == '\0')
-		return ((char*)haystack + (i - j));
-	return (NULL);
+	return (0);
 }

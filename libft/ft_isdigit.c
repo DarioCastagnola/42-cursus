@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ametta <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/14 11:27:44 by ametta            #+#    #+#             */
-/*   Updated: 2021/01/14 11:53:36 by ametta           ###   ########.fr       */
+/*   Created: 2023/01/16 12:20:18 by dcastagn          #+#    #+#             */
+/*   Updated: 2023/01/23 15:59:41 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <unistd.h>
 #include "libft.h"
 
 int	ft_isdigit(int c)
@@ -19,3 +20,10 @@ int	ft_isdigit(int c)
 	else
 		return (0);
 }
+/*int main(int argc,char **argv)
+{
+	if (ft_isdigit(argv[2][0]))
+		write(1, "true", 4);
+	return(0);
+}
+*/

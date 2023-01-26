@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bzero.c                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ametta <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 11:33:47 by ametta            #+#    #+#             */
-/*   Updated: 2021/01/14 15:50:07 by ametta           ###   ########.fr       */
+/*   Created: 2023/01/18 14:16:24 by dcastagn          #+#    #+#             */
+/*   Updated: 2023/01/23 16:28:37 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, int nbyte)
+void	ft_bzero(void *s, size_t n)
+
 {
-	int i;
+	size_t	i;
 
 	i = 0;
-	while (i < nbyte)
+	while (i < n)
 	{
-		((char*)s)[i] = 0;
+		((char *)s)[i] = 0;
 		i++;
 	}
+	return ;
 }
