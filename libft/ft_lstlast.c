@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ametta <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/26 16:16:19 by ametta            #+#    #+#             */
-/*   Updated: 2021/01/27 09:10:38 by ametta           ###   ########.fr       */
+/*   Created: 2023/01/27 12:13:52 by dcastagn          #+#    #+#             */
+/*   Updated: 2023/01/27 12:32:30 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list *last;
+	t_list	*currentelement;
 
-	last = lst;
-	while (last->next)
-		last = last->next;
-	return (last);
+	currentelement = lst;
+	if (currentelement == NULL)
+		return (NULL);
+	while (currentelement->next != NULL)
+		currentelement = currentelement->next;
+	return (currentelement);
 }
