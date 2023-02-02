@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:02:10 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/02/02 16:42:26 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:51:30 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_printf(const char *src, ...)
 			ft_putchar(src[i]);
 		i++;
 	}
-	return (0);
+	return (count);
 }
 
 int	main(void)
