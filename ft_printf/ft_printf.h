@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:56:18 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/02/06 16:51:43 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:03:33 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdio.h>
 # include <stdarg.h>
 
-size_t	ft_strlen(const char *s);
 void	ft_putchar(char c, int *count);
 int		ft_putnbr(int n, int *count);
 void	ft_putsrc(char c, int *count, va_list ptr);

@@ -6,13 +6,12 @@
 #    By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 10:29:05 by dcastagn          #+#    #+#              #
-#    Updated: 2023/02/06 16:29:11 by dcastagn         ###   ########.fr        #
+#    Updated: 2023/02/06 17:03:19 by dcastagn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SRCS =	ft_strlen.c   	 \
-	    ft_putchar.c	 \
+SRCS =  ft_putchar.c	 \
 	    ft_putnbr.c 	 \
 		ft_printf.c		 \
 		ft_putsrc.c		 \
