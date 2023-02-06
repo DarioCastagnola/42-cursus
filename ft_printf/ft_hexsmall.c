@@ -6,15 +6,15 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:31:55 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/02/06 12:41:25 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:25:14 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_hexsmall(unsigned int n, int *count)
 {
-	if (n < 9 && n >= 0)
+	if (n <= 9 && n >= 0)
 		ft_putchar(n + '0', count);
 	if (n == 10)
 		ft_putchar('a', count);
@@ -28,16 +28,10 @@ int	ft_hexsmall(unsigned int n, int *count)
 		ft_putchar('e', count);
 	if (n == 15)
 		ft_putchar('f', count);
-	if (n > 16)
+	if (n >= 16)
 	{
 		ft_hexsmall(n / 16, count);
 		ft_hexsmall(n % 16, count);
 	}
 	return (*count);
 }
-/*
-196 % 16
-printa 1
-15
-15 = f
-*/

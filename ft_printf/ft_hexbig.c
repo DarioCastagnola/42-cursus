@@ -6,15 +6,15 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:31:51 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/02/06 12:51:53 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:27:03 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_hexbig(unsigned int n, int *count)
 {
-	if (n < 9 && n >= 0)
+	if (n <= 9 && n >= 0)
 		ft_putchar(n + '0', count);
 	if (n == 10)
 		ft_putchar('A', count);
@@ -28,7 +28,7 @@ int	ft_hexbig(unsigned int n, int *count)
 		ft_putchar('E', count);
 	if (n == 15)
 		ft_putchar('F', count);
-	if (n > 16)
+	if (n >= 16)
 	{
 		ft_hexbig(n / 16, count);
 		ft_hexbig(n % 16, count);

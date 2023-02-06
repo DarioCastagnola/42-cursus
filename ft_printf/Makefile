@@ -6,7 +6,7 @@
 #    By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 10:29:05 by dcastagn          #+#    #+#              #
-#    Updated: 2023/02/06 11:20:19 by dcastagn         ###   ########.fr        #
+#    Updated: 2023/02/06 16:29:11 by dcastagn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,10 @@ SRCS =	ft_strlen.c   	 \
 		ft_putsrc.c		 \
 		ft_putstr.c		 \
 		ft_putbignbr.c	 \
+		ft_putaddress.c  \
+		ft_hexbig.c		 \
+		ft_hexsmall.c    \
+		ft_hexsmall_p.c  \
 
 FLAGS = -Wall -Wextra -Werror
 CC = gcc

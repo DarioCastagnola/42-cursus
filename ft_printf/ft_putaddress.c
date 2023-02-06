@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putaddress.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 15:52:22 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/02/06 16:15:39 by dcastagn         ###   ########.fr       */
+/*   Created: 2023/02/06 14:36:57 by dcastagn          #+#    #+#             */
+/*   Updated: 2023/02/06 16:51:48 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *s, int *count)
+int	ft_putaddress(unsigned long i, int *count)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-	{
-		write(1, "(null)", 6);
-		(*count) += 6;
-		return (*count);
-	}
-	while (s[i])
-	{
-		write (1, &s[i], 1);
-		i++;
-		(*count)++;
-	}
+	ft_putstr("0x", count);
+	ft_hexsmall_p(i, count);
 	return (*count);
 }

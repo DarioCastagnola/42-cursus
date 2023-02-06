@@ -6,11 +6,11 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:58:38 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/02/06 10:38:07 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:16:30 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr(int n, int *count)
 {
