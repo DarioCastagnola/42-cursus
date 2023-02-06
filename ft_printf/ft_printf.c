@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:02:10 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/02/02 16:51:30 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/02/06 12:49:13 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,15 @@ int	ft_printf(const char *src, ...)
 	va_start(ptr, src);
 	i = 0;
 	count = 0;
-	if (!src)
-	{
-		write (1, "(NULL)", 6);
-		return (6);
-	}		
 	while (src[i])
 	{
 		if (src[i] == '%')
 		{
 			i++;
-			ft_putsrc(src[i], ptr);
+			ft_putsrc(src[i], &count, ptr);
 		}
 		else
-			ft_putchar(src[i]);
+			ft_putchar(src[i], &count);
 		i++;
 	}
 	return (count);
@@ -43,11 +38,18 @@ int	ft_printf(const char *src, ...)
 int	main(void)
 
 {
-	char	b;
-	int		s;
-	char	str[] = "Every poo poo time is pee pee time but not every pee pee time is poo poo time";
+	char			b;
+	int				s, c;
+	unsigned int	m;
+	char			str[] = "Every poo poo time is pee pee time but not every pee pee time is poo poo time";
+	int				w;
 
 	s = 42;
+	m = 2121212123;
 	b = 'P';
-	ft_printf("wq%%wq%cwq%dwq%swq", b, s, str);
+	w = 196;
+	c = ft_printf("wq%%wq%cwq%dwq%swq%uwq%xwq%Xwq\n", b, s, str, m, w, w);
+	ft_printf("%d \n", c);
+	c = printf("wq%%wq%cwq%dwq%swq%uwq%xwq%Xwq\n", b, s, str, m, w, w);
+	printf("%d \n", c);
 }
