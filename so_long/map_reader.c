@@ -1,0 +1,96 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_reader.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/22 17:10:58 by dcastagn          #+#    #+#             */
+/*   Updated: 2023/03/06 16:11:49 by dcastagn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "so_long.h"
+
+/* Return how many '\n' are in <file> */
+int	file_linecount(char *file)
+{
+	char	*l;
+	int		fd;
+	int		i;
+	int		j;
+
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		exit(write(1, "Error\nMap not found\n", 20));
+	j = 0;
+	l = get_next_line(fd);
+	if (!l)
+		null_error("Mappa vuota");
+	i = ft_strlen(l) - 1;
+	while (l)
+	{
+		if (l[ft_strlen(l) - 1] == '\n')
+			l[ft_strlen(l) - 1] = 0;
+		free(l);
+		l = get_next_line(fd);
+		j++;
+	}
+	close(fd);
+	return (j);
+}
+
+char	**read_map(char *file)
+{
+	char	**map;
+	int		fd;
+	int		i;
+	int		line;
+
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		null_error("Errore nell'apertura del file");
+	line = file_linecount(file);
+	ft_printf("%d\n", line);
+	if (line == 0)
+		return (0);
+	map = (char **)malloc(sizeof(char *) * (line + 1));
+	if (!map)
+		null_error_freemap("Errore nell'allocazione di memoria", fd, map);
+	i = -1;
+	while (++i < line)
+		map[i] = get_next_line(fd);
+	map[line] = 0;
+	i = -1;
+	if (!is_valid_map(map))
+		null_error_freemap("Mappa non valida", fd, map);
+	close(fd);
+	return (map);
+}
+
+int	ft_strlen_file(char *file)
+{
+	int		fd;
+	char	c;
+	int		readcount;
+	int		i;
+
+	i = 0;
+	fd = open(file, O_RDONLY);
+	if (!fd)
+		return (-1);
+	while (1)
+	{
+		readcount = read(fd, &c, 1);
+		if (readcount == 0)
+			break ;
+		if (readcount < 0)
+			return (-1);
+		if (c != '\n')
+			i++;
+		if (c == '\n')
+			break ;
+	}
+	close(fd);
+	return (i);
+}
