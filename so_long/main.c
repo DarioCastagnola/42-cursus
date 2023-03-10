@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:45:14 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/10 11:21:50 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:01:28 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 	game.mlx = mlx_init();
 	game.map = read_map(argv[1]);
 	is_valid_map(game.map);
+	ft_check_input(argv[1]);
 	game.mlx_win = mlx_new_window(game.mlx,
 			ft_strlen_file(argv[1]) * 64,
 			file_linecount(argv[1]) * 64, "so_long");
@@ -38,4 +39,14 @@ int	ft_destroy_window(t_game *game)
 {
 	mlx_destroy_window(game->mlx, game->mlx_win);
 	exit(ft_printf("You left the Summoner's Rift!\n"));
+}
+
+void	ft_check_input(char *s)
+{
+	int	l;
+
+	l = ft_strlen(s);
+	if (!(s[l - 1] == 'r' && s[l - 2] == 'e' && s[l - 3]
+			== 'b' && s[l - 4] == '.'))
+		null_error("Map isnt in .ber format");
 }

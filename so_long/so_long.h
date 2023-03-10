@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:43:19 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/10 16:12:33 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:00:39 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void		set_chimes(t_game *game);
 void		win(char *message);
 void		print_moves(t_game *game);
 void		lose(char *message);
+void		ft_check_input(char *s);
 int			ft_destroy_window(t_game *game);
 //funzioni getnextline
 char		*get_next_line(int fd);
