@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:43:19 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/10 10:56:25 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:12:33 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 # include <mlx.h>
 # include "../libft/libft.h"
-# include "../printf/ft_printf.h"
+# include "./printf/ft_printf.h"
 # include <fcntl.h>
 # include <math.h>
 # define BUFFER_SIZE 1

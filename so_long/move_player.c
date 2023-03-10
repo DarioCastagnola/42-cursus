@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:43:12 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/10 11:42:15 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:37:30 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	move_player_up(t_game *game, int x, int y)
 		else if (game->map[y - 1][x] == 'E' && game->end == 0)
 			return ;
 		else if (game->map[y - 1][x] == 'E' && game->end == 1)
-			exit(1);
+			win("🌟 you have completed your magical journey! 🌟");
 		else if (game->map[y - 1][x] == 'G')
 			lose("🚧 you have encountered a wild Giorgio! 🚧");
 		game->bard = game->bard_u;
@@ -44,7 +44,7 @@ void	move_player_down(t_game *game, int x, int y)
 		else if (game->map[y + 1][x] == 'E' && game->end == 0)
 			return ;
 		else if (game->map[y + 1][x] == 'E' && game->end == 1)
-			exit(1);
+			win("🌟 you have completed your magical journey! 🌟");
 		else if (game->map[y + 1][x] == 'G')
 			lose("🚧 you have encountered a wild Giorgio! 🚧");
 		game->bard = game->bard_d;
@@ -90,7 +90,7 @@ void	move_player_right(t_game *game, int x, int y)
 		else if (game->map[y][x + 1] == 'E' && game->end == 0)
 			return ;
 		else if (game->map[y][x + 1] == 'E' && game->end == 1)
-			exit(1);
+			win("🌟 you have completed your magical journey! 🌟");
 		else if (game->map[y][x + 1] == 'G')
 			lose("🚧 you have encountered a wild Giorgio! 🚧");
 		game->bard = game->bard_r;
@@ -117,6 +117,7 @@ int	key_hook(int key, t_game *game)
 	if (key == KEY_LEFT || key == KEY_A)
 		move_player_left(game, game->bardx, game->bardy);
 	print_moves(game);
+	ft_printf("%d\n", game->player_moves);
 	if (key == KEY_ESC)
 	{
 		mlx_destroy_window(game->mlx, game->mlx_win);
