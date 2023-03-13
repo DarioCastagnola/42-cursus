@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:45:14 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/10 17:01:28 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/13 11:44:23 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(int argc, char **argv)
 	img_init(&game);
 	draw_map(&game);
 	print_moves(&game);
+	mlx_loop_hook(game.mlx, render, &game);
 	mlx_loop(game.mlx);
 }
 
@@ -49,4 +50,23 @@ void	ft_check_input(char *s)
 	if (!(s[l - 1] == 'r' && s[l - 2] == 'e' && s[l - 3]
 			== 'b' && s[l - 4] == '.'))
 		null_error("Map isnt in .ber format");
+}
+
+void	frame_setter(t_game *game)
+{
+	static int	frame;
+
+	if (frame == 60)
+		frame = 0;
+	frame++;
+	game->frame = frame;
+}
+
+int	render(t_game *game)
+{
+	usleep(5000);
+	frame_setter(game);
+	if (locate_baron(game))
+		animate_baron(game);
+	return (0);
 }

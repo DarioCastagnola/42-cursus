@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:43:12 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/10 16:37:30 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/13 11:50:05 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	move_player_up(t_game *game, int x, int y)
 		else if (game->map[y - 1][x] == 'E' && game->end == 1)
 			win("🌟 you have completed your magical journey! 🌟");
 		else if (game->map[y - 1][x] == 'G')
-			lose("🚧 you have encountered a wild Giorgio! 🚧");
+			lose("🚧 You have encountered the almighty Baron Nashor! 🚧");
 		game->bard = game->bard_u;
 		game->map[y][x] = '0';
 		game->map[y - 1][x] = 'P';
@@ -46,7 +46,7 @@ void	move_player_down(t_game *game, int x, int y)
 		else if (game->map[y + 1][x] == 'E' && game->end == 1)
 			win("🌟 you have completed your magical journey! 🌟");
 		else if (game->map[y + 1][x] == 'G')
-			lose("🚧 you have encountered a wild Giorgio! 🚧");
+			lose("🚧 You have encountered the almighty Baron Nashor! 🚧");
 		game->bard = game->bard_d;
 		game->map[y][x] = '0';
 		game->map[y + 1][x] = 'P';
@@ -69,7 +69,7 @@ void	move_player_left(t_game *game, int x, int y)
 		else if (game->map[y][x - 1] == 'E' && game->end == 1)
 			win("🌟 you have completed your magical journey! 🌟");
 		else if (game->map[y][x - 1] == 'G')
-			lose("🚧 you have encountered a wild Giorgio! 🚧");
+			lose("🚧 You have encountered the almighty Baron Nashor! 🚧");
 		game->bard = game->bard_l;
 		game->map[y][x] = '0';
 		game->map[y][x - 1] = 'P';
@@ -92,7 +92,7 @@ void	move_player_right(t_game *game, int x, int y)
 		else if (game->map[y][x + 1] == 'E' && game->end == 1)
 			win("🌟 you have completed your magical journey! 🌟");
 		else if (game->map[y][x + 1] == 'G')
-			lose("🚧 you have encountered a wild Giorgio! 🚧");
+			lose("🚧 You have encountered the almighty Baron Nashor! 🚧");
 		game->bard = game->bard_r;
 		game->map[y][x] = '0';
 		game->map[y][x + 1] = 'P';

@@ -6,7 +6,7 @@
 #    By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 16:42:58 by dcastagn          #+#    #+#              #
-#    Updated: 2023/03/09 16:16:49 by dcastagn         ###   ########.fr        #
+#    Updated: 2023/03/13 10:04:09 by dcastagn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ $(NAME): $(OBJS)
 	$(CC) $(MLXFLAGS) $(LIBFT)/$(LIBFT_LIB)  $(PRINTF)/$(PRINTF_LIB) $(OBJS) -o $(NAME)
 
 game:
-	leaks -atExit -- ./so_long map1.ber
+	leaks -atExit -- ./so_long maps/map1.ber
 
 linux: $(OBJS)
 	make re -C $(PRINTF)

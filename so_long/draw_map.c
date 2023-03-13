@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:53:01 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/10 12:39:47 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/13 11:33:46 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,29 +24,22 @@ void	bard_img_init(t_game *game)
 			"xpm/bardR.xpm", &game->img_width, &game->img_height);
 	game->bard_u = mlx_xpm_file_to_image(game->mlx,
 			"xpm/bardU.xpm", &game->img_width, &game->img_height);
-	game->giorgio_l = mlx_xpm_file_to_image(game->mlx,
-			"xpm/giorgioL.xpm", &game->img_width, &game->img_height);
-	game->giorgio_r = mlx_xpm_file_to_image(game->mlx,
-			"xpm/giorgioR.xpm", &game->img_width, &game->img_height);
 }
 
 void	img_init(t_game *game)
 {
 	bard_img_init(game);
+	baron_animation_file(game);
 	game->floor = mlx_xpm_file_to_image(game->mlx,
 			"xpm/river.xpm", &game->img_width, &game->img_height);
 	game->wall = mlx_xpm_file_to_image(game->mlx,
 			"xpm/borders.xpm", &game->img_width, &game->img_height);
-	game->enemy_r = mlx_xpm_file_to_image(game->mlx,
-			"xpm/giorgioR.xpm", &game->img_width, &game->img_height);
 	game->pickups = mlx_xpm_file_to_image(game->mlx,
 			"xpm/chime.xpm", &game->img_width, &game->img_height);
 	game->door_open_img = mlx_xpm_file_to_image(game->mlx,
 			"xpm/doorO.xpm", &game->img_width, &game->img_height);
 	game->door_close_img = mlx_xpm_file_to_image(game->mlx,
 			"xpm/doorC.xpm", &game->img_width, &game->img_height);
-	game->enemy_l = mlx_xpm_file_to_image(game->mlx,
-			"xpm/giorgioL.xpm", &game->img_width, &game->img_height);
 	game->obstacle = mlx_xpm_file_to_image(game->mlx,
 			"xpm/bush.xpm", &game->img_width, &game->img_height);
 }
@@ -71,7 +64,7 @@ void	selector_2(t_game *game, char c)
 	{
 		mlx_put_image_to_window(game->mlx, game->mlx_win, game->floor,
 			game->imgx, game->imgy);
-		mlx_put_image_to_window(game->mlx, game->mlx_win, game->giorgio_r,
+		mlx_put_image_to_window(game->mlx, game->mlx_win, game->baron1,
 			game->imgx, game->imgy);
 	}
 }

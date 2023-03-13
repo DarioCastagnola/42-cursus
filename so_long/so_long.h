@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:43:19 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/10 17:00:39 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/13 10:58:45 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "./printf/ft_printf.h"
 # include <fcntl.h>
 # include <math.h>
+# include <time.h>
 # define BUFFER_SIZE 1
 //Movements macros
 # define KEY_W 13
@@ -51,24 +52,33 @@ typedef struct s_game
 	void			*bard_r;
 	void			*bard_d;
 	void			*bard_u;
-	void			*enemy_r;
 	void			*enemy_l;
 	void			*obstacle;
-	void			*giorgio_r;
-	void			*giorgio_l;
+	void			*baron2;
+	void			*baron1;
+	void			*baron3;
+	void			*baron4;
 	int				img_width;
 	int				img_height;
 	int				imgx;
 	int				imgy;
 	int				bardx;
 	int				bardy;
+	int				baronx;
+	int				barony;
 	int				numchimes;
 	int				end;
 	int				door_x;
 	int				door_y;
 	int				player_moves;
+	int				frame;
 }		t_game;
 
+int			locate_baron(t_game *game);
+void		baron_animation_file(t_game *game);
+int			render(t_game *game);
+void		frame_setter(t_game *game);
+void		animate_baron(t_game *game);
 char		**read_map(char *file);
 void		*null_error(char *message);
 void		*null_error_wfile(char *message, int fd);
