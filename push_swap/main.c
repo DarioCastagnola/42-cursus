@@ -6,28 +6,49 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:34:57 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/20 16:54:43 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:29:41 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	check_dups(t_stack *stack)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < stack->size_a)
+	{
+		j = i + 1;
+		while (j < stack->size_a)
+		{
+			if (stack->stack_a[i] == stack->stack_a[j])
+			{
+				exit(write(1, "Error Duplicates found\n", 23));
+			}
+			j++;
+		}
+		i++;
+	}
+}
 
 void	check_arg(int argc, char **argv)
 {
 	int	i;
 
 	if (argc <= 1)
-		exit(write(1, "Error\n", 6));
+		exit(write(1, "Error argc <= 1\n", 16));
 	i = 0;
 	while (argv[++i])
 	{
 		if (ft_atoi(argv[i]) < -2147483648
 			|| ft_atoi(argv[i]) > 2147483647)
-			exit(write(1, "Error\n", 6));
+			exit(write(1, "Error Max/Min int value exceeded\n", 33));
 	}
 }
 
-void	ft_size_count1(t_stack *stack, char **temp1)
+void	init_a(t_stack *stack, char **temp1)
 {
 	int	i;
 
@@ -35,9 +56,8 @@ void	ft_size_count1(t_stack *stack, char **temp1)
 	while (temp1[++i])
 	{
 		if (ft_atoi(temp1[i]) == 0 && temp1[i][0] != '0')
-			exit(write(1, "Error\nft_sizecount1\n", 20));
+			exit(write(1, "Error while initializing stack A\n", 33));
 		stack->stack_a[i] = ft_atoi(temp1[i]);
-		free(temp1[i]);
 	}
 }
 
@@ -56,11 +76,17 @@ void	ft_size_count(int argc, char **argv, t_stack *stack)
 		temp = ft_strjoin(temp, " ");
 	}
 	temp1 = ft_split(temp, 32);
+	i = -1;
+	while (temp1[++i])
+		;
 	free(temp);
-	stack->size_a = i - 1;
+	stack->size_a = i;
 	stack->size_l = stack->size_a;
 	stack->stack_a = (int *) malloc (stack->size_a * sizeof(int));
-	ft_size_count1(stack, temp1);
+	init_a(stack, temp1);
+	i = -1;
+	while (temp1[++i])
+		free(temp1[i]);
 	free(temp1);
 }
 
@@ -71,6 +97,7 @@ int	main(int argc, char **argv)
 	printf("start\n");
 	check_arg(argc, argv);
 	ft_size_count(argc, argv, &stack);
+	check_dups(&stack);
 	stack.size_b = 0;
 	stack.stack_b = malloc(sizeof(int) * stack.size_a);
 	printf("finish\n");
