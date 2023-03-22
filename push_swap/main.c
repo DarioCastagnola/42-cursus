@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:34:57 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/21 16:29:41 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:15:34 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ft_size_count(int argc, char **argv, t_stack *stack)
 		temp = ft_strjoin(temp, argv[i]);
 		temp = ft_strjoin(temp, " ");
 	}
-	temp1 = ft_split(temp, 32);
+	temp1 = ft_split(temp, ' ');
 	i = -1;
 	while (temp1[++i])
 		;
@@ -94,11 +94,17 @@ int	main(int argc, char **argv)
 {
 	t_stack	stack;
 
-	printf("start\n");
 	check_arg(argc, argv);
 	ft_size_count(argc, argv, &stack);
 	check_dups(&stack);
 	stack.size_b = 0;
 	stack.stack_b = malloc(sizeof(int) * stack.size_a);
-	printf("finish\n");
+	init_b(&stack);
+	ft_smallest(&stack);
+	ft_biggest(&stack);
+	if (stack.size_a == 3)
+		ft_sort_three(&stack);
+	if (stack.size_a == 2)
+		ft_sort_two(&stack);
+	ft_is_ordered(&stack);
 }
