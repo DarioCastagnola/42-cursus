@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:38:20 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/22 15:15:22 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/28 15:02:35 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	init_b(t_stack *stack)
 	int	i;
 
 	i = 0;
+	stack->stack_b = (int *) malloc (stack->size_a * sizeof(int));
 	while (i < stack->size_a)
 	{
 		stack->stack_b[i] = 0;
@@ -60,7 +61,7 @@ int	ft_biggest(t_stack *stack)
 	return (biggest);
 }
 
-void	ft_is_ordered(t_stack *stack)
+int	ft_is_ordered(t_stack *stack)
 {
 	int	i;
 
@@ -68,8 +69,20 @@ void	ft_is_ordered(t_stack *stack)
 	while (i < stack->size_a)
 	{
 		if (stack->stack_a[i] < stack->stack_a[i - 1])
-			return ;
+			return (0);
 		i++;
 	}
-	exit(write(1, "Tutto ordinato\n", 15));
+	return (1);
+}
+
+void	ft_big_push(t_stack *stack)
+{
+	while (stack->size_a > 2)
+	{
+		while (stack->stack_a[0] == 1 || stack->stack_a[0] == stack->size_l)
+			ra(stack, 1);
+		pb(stack, 1);
+	}
+	if (stack->stack_a[0] > stack->stack_a[1])
+		sa(stack, 1);
 }

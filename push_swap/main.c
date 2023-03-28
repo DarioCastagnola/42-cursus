@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:34:57 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/22 15:15:34 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/28 10:36:01 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,14 +97,12 @@ int	main(int argc, char **argv)
 	check_arg(argc, argv);
 	ft_size_count(argc, argv, &stack);
 	check_dups(&stack);
-	stack.size_b = 0;
-	stack.stack_b = malloc(sizeof(int) * stack.size_a);
+	if (ft_is_ordered(&stack))
+		exit (0);
+	ft_num_stack(&stack);
+	ft_arr_sort(&stack);
+	ft_empty_stack_a(&stack);
+	stack.num_a = (argc - 1);
 	init_b(&stack);
-	ft_smallest(&stack);
-	ft_biggest(&stack);
-	if (stack.size_a == 3)
-		ft_sort_three(&stack);
-	if (stack.size_a == 2)
-		ft_sort_two(&stack);
-	ft_is_ordered(&stack);
+	push_all_b(&stack);
 }
