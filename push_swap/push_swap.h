@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:51:45 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/28 10:19:52 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/28 17:05:01 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void	ft_sort_five(t_stack *stack);
 void	ft_arr_sort(t_stack *stack);
 void	ft_empty_stack_a(t_stack *stack);
 void	ft_min_max(int *stack, int size, int *min, int *max);
+void	ft_big_push(t_stack *stack);
 
 #endif
