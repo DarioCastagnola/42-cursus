@@ -6,7 +6,7 @@
 #    By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 12:51:50 by dcastagn          #+#    #+#              #
-#    Updated: 2023/03/28 10:19:34 by dcastagn         ###   ########.fr        #
+#    Updated: 2023/03/31 12:19:53 by dcastagn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ SRCS = main.c	\
 		ft_sort3n2.c \
 		algo.c    \
 		num_assign.c \
-		move_calc.c  \
 
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f

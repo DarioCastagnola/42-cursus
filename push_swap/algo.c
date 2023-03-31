@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:33:15 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/30 16:00:23 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/31 12:33:05 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,17 @@ void	push_all_b(t_stack *stack)
 {
 	if (stack->size_a == 3)
 		ft_sort_three(stack);
-	if (stack->size_a == 2)
+	else if (stack->size_a == 2)
 		ft_sort_two(stack);
-	if (stack->size_a == 5)
+	else if (stack->size_a == 5)
 		ft_sort_five(stack);
 	else
 		ft_big_push(stack);
+}
+
+void	ft_freedom(t_stack *stack)
+{
+	free(stack->stack_a);
+	free(stack->stack_b);
+	free(stack->num);
 }

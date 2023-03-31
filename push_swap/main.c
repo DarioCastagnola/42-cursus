@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:34:57 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/28 17:04:25 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/31 12:37:17 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	check_dups(t_stack *stack)
 		{
 			if (stack->stack_a[i] == stack->stack_a[j])
 			{
-				exit(write(1, "Error Duplicates found\n", 23));
+				exit(write(2, "Error\n", 6));
 			}
 			j++;
 		}
@@ -38,13 +38,13 @@ void	check_arg(int argc, char **argv)
 	int	i;
 
 	if (argc <= 1)
-		exit(write(1, "Error argc <= 1\n", 16));
+		exit(1);
 	i = 0;
 	while (argv[++i])
 	{
 		if (ft_atoi(argv[i]) < -2147483648
 			|| ft_atoi(argv[i]) > 2147483647)
-			exit(write(1, "Error Max/Min int value exceeded\n", 33));
+			exit(write(2, "Error\n", 6));
 	}
 }
 
@@ -56,7 +56,7 @@ void	init_a(t_stack *stack, char **temp1)
 	while (temp1[++i])
 	{
 		if (ft_atoi(temp1[i]) == 0 && temp1[i][0] != '0')
-			exit(write(1, "Error while initializing stack A\n", 33));
+			exit(write(2, "Error\n", 6));
 		stack->stack_a[i] = ft_atoi(temp1[i]);
 	}
 }
@@ -98,11 +98,12 @@ int	main(int argc, char **argv)
 	ft_size_count(argc, argv, &stack);
 	check_dups(&stack);
 	if (ft_is_ordered(&stack))
-		exit (0);
+		return (0);
 	ft_num_stack(&stack);
 	ft_arr_sort(&stack);
 	ft_empty_stack_a(&stack);
-	stack.num_a = (argc - 1);
 	init_b(&stack);
 	push_all_b(&stack);
+	ft_freedom(&stack);
+	return (0);
 }

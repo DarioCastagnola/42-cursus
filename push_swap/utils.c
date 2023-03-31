@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:38:20 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/30 14:33:02 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/31 12:37:45 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ int	ft_is_ordered(t_stack *stack)
 			return (0);
 		i++;
 	}
+	ft_freedom(stack);
 	return (1);
 }

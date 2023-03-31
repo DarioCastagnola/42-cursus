@@ -6,7 +6,7 @@
 /*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:51:45 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/28 17:05:01 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/03/31 12:20:25 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ typedef struct e_stack{
 	int				placed_number;
 	int				min_num;
 	int				nbr;
-	int				min;
-	int				max;
 	int				*num;
 
 }	t_stack;
@@ -54,12 +52,11 @@ void	ft_sort_three(t_stack *stack);
 void	ft_sort_two(t_stack *stack);
 int		ft_is_ordered(t_stack *stack);
 void	push_all_b(t_stack *stack);
-void	ascend(t_stack *stack);
 void	ft_num_stack(t_stack *stack);
 void	ft_sort_five(t_stack *stack);
 void	ft_arr_sort(t_stack *stack);
 void	ft_empty_stack_a(t_stack *stack);
-void	ft_min_max(int *stack, int size, int *min, int *max);
 void	ft_big_push(t_stack *stack);
+void	ft_freedom(t_stack *stack);
 
 #endif
