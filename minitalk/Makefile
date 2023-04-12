@@ -6,14 +6,14 @@
 #    By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 12:51:50 by dcastagn          #+#    #+#              #
-#    Updated: 2023/04/07 15:56:21 by dcastagn         ###   ########.fr        #
+#    Updated: 2023/04/11 11:04:54 by dcastagn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME_SERVER = server
 NAME_CLIENT = client
-SERVER_DIR = ./server
-CLIENT_DIR = ./client
+SERVER_DIR = ./dirserver
+CLIENT_DIR = ./dirclient
 SERVER = ${SERVER_DIR}/server.c
 CLIENT = ${CLIENT_DIR}/client.c
 SERVER_OBJ = ${SERVER:.c=.o}
