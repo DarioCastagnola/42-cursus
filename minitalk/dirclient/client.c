@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 16:19:49 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/04/12 17:44:51 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:59:28 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,11 @@ void	ft_atob(char c, int pid)
 	bit = -1;
 	while (++bit < 8)
 	{
-		if (c & 128)
-		{
-			if (kill(pid, SIGUSR2) == -1)
-				exit(ft_printf("%sError\n%s", RED, END));
-		}
+		if ((c >> bit) % 2)
+			kill(pid, SIGUSR1);
 		else
-		{
-			if (kill(pid, SIGUSR1) == -1)
-				exit(ft_printf("%sError\n%s", RED, END));
-		}
-		c <<= 1;
-		pause();
-		usleep(100);
+			kill(pid, SIGUSR2);
+		usleep(500);
 	}
 }
 
@@ -78,6 +70,7 @@ void	send_text(char *str, int pid)
 	while (str[++i])
 		ft_atob(str[i], pid);
 	ft_atob('\0', pid);
+	ft_atob('\n', pid);
 }
 
 int	main(int argc, char **argv)
@@ -90,11 +83,10 @@ int	main(int argc, char **argv)
 	else
 	{
 		if ((argv[1][0] == '-' && argv[1][1] == '1' &&
-		!argv[1][2]) || argv[1][0] == '0' && !argv[1][1])
+		!argv[1][2]) || (argv[1][0] == '0' && !argv[1][1]))
 			exit(ft_printf("%sBad input;\npid is invalid\n%s", RED, END));
 		sigemptyset(&sa.sa_mask);
 		sa.sa_handler = &sigint_handler;
-		sigaction(SIGUSR1, &sa, NULL);
 		server_pid = ft_atoi(argv[1]);
 		send_text(argv[2], server_pid);
 	}

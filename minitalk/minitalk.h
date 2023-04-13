@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 16:21:06 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/04/11 16:23:59 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:27:23 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <signal.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include "ft_printf/ft_printf.h"
 
 # define RED "\033[0;31m"
