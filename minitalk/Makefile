@@ -6,7 +6,7 @@
 #    By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 12:51:50 by dcastagn          #+#    #+#              #
-#    Updated: 2023/04/11 11:04:54 by dcastagn         ###   ########.fr        #
+#    Updated: 2023/04/14 11:27:26 by dcastagn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ SERVER_DIR = ./dirserver
 CLIENT_DIR = ./dirclient
 SERVER = ${SERVER_DIR}/server.c
 CLIENT = ${CLIENT_DIR}/client.c
+SERVER_B = ${SERVER_DIR}/server_bonus.c
+CLIENT_B = ${CLIENT_DIR}/client_bonus.c
 SERVER_OBJ = ${SERVER:.c=.o}
 CLIENT_OBJ = ${CLIENT:.c=.o}
 CC = gcc
@@ -26,6 +28,10 @@ RM = rm -f
 	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 all: lib ${NAME_SERVER} ${NAME_CLIENT}
+
+bonus: lib
+	${CC} ${FLAGS} ${SERVER_B} ./ft_printf/libftprintf.a -o ${NAME_SERVER}
+	${CC} ${FLAGS} ${CLIENT_B} ./ft_printf/libftprintf.a -o ${NAME_CLIENT}
 
 lib:
 	make -C ./ft_printf
