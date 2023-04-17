@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 14:51:52 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/04/17 12:37:33 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:09:04 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <pthread.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <sys/time.h>
 # define NC	"\e[0m"
 # define YELLOW	"\e[1;33m"
 
