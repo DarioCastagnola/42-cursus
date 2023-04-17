@@ -6,12 +6,12 @@
 #    By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/14 14:52:32 by dcastagn          #+#    #+#              #
-#    Updated: 2023/04/14 15:55:03 by dcastagn         ###   ########.fr        #
+#    Updated: 2023/04/17 10:09:07 by dcastagn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
-PHILO = main.c
+PHILO = main.c ft_atoi.c
 OBJ = ${PHILO:.c=.o}
 CC = gcc
 FLAGS = -Wall -Wextra -Werror -pthread
