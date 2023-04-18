@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 14:51:52 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/04/17 16:09:04 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:56:27 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_data
 typedef struct s_philo
 {
 	pthread_mutex_t	fork;
+	pthread_t		philo;
 	t_data			*back;
 	int				id;
 }	t_philo;

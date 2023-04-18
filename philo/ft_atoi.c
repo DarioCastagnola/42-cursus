@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 10:07:41 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/04/17 10:08:42 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/04/18 16:49:25 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,17 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (num * sign);
+}
+
+void	check_args(int argc, char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (i != 5)
+	{
+		if (ft_atoi(argv[i] <= 0))
+			exit (printf("bad input\n"));
+		++i;
+	}
 }
