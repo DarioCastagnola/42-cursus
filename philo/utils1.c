@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 10:07:41 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/04/20 12:35:20 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:54:00 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,16 @@ int	ft_atoi(const char *str)
 	return (num * sign);
 }
 
-void	check_args(int argc, char **argv)
+void	ft_bzero(void *a, size_t len)
 {
-	int	i;
+	size_t			i;
+	unsigned char	*tmp_a;
 
 	i = 0;
-	while (i != 5)
+	tmp_a = a;
+	while (len > i)
 	{
-		if (ft_atoi(argv[i] <= 0))
-			exit (printf("bad input\n"));
-		++i;
+		tmp_a[i] = 0;
+		i++;
 	}
 }

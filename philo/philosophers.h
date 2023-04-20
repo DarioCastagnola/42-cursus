@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 14:51:52 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/04/20 12:24:51 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:28:30 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,15 @@ typedef struct s_data
 typedef struct s_philo
 {
 	pthread_mutex_t	fork;
-	pthread_t		philo;
-	t_data			*back;
+	pthread_t		philot;
+	t_data			*rules;
+	pthread_mutex_t	*mutex_print;
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*right_fork;
+	long long		public_time;
 	int				id;
+	long long		eating_start_time;
+	long long		starve_time;
 }	t_philo;
 
 int	ft_atoi(const char *str);
