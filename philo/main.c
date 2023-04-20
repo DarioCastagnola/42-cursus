@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 15:45:05 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/04/18 16:54:48 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/04/20 12:39:39 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 long long	current_timestamp(void)
 {
-	struct timeval	te;
-	long long		milliseconds;
+	struct timeval	tv;
+	long long		ms_time;
 
-	gettimeofday(&te, NULL);
-	milliseconds = te.tv_sec * 1000LL + te.tv_usec / 1000;
-	return (milliseconds);
+	gettimeofday(&tv, NULL);
+	return ((tv.tv_sec) * 1000 + (tv.tv_usec) / 1000);
 }
 
 void	*ft_routine(void *philo)
@@ -51,8 +50,9 @@ void	ft_create_life(t_data *data)
 	int	i;
 
 	i = 0;
-	data->philo = (t_philo *)malloc(sizeof(t_philo) * data->numphilo);
-	while (i < data->numphilo)
+	data->philo = (t_philo *)malloc(sizeof(t_philo)
+			* data->number_of_philosophers);
+	while (i < data->number_of_philosophers)
 	{
 		pthread_create(&data->philo[i].philo, NULL,
 			&ft_routine, (void *)&data->philo[i]);
@@ -64,16 +64,11 @@ int	main(int argc, char **argv)
 {
 	t_data	rules;
 
-	rules.numeat = -1;
-	check_args(argc, argv);
-	if (argc == 6)
-		rules.numeat = ft_atoi(argv[5]);
-	if (argc != 5)
-		exit (printf("Error bad input"));
-	rules.numphilo = ft_atoi(argv[1]);
-	rules.time_to_die = ft_atoi(argv[2]);
-	rules.time_to_eat = ft_atoi(argv[3]);
-	rules.time_to_sleep = ft_atoi(argv[4]);
-	ft_create_life(&rules);
+	if (argc < 5 || argc > 6)
+		return (printf("Error bad input\n"));
+	if (check_args(argc, argv))
+		return (printf("Invalid Input\n"));
+	if (init(argc, argv, &rules))
+		return (printf("you have exceeded the max/min int value\n"));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 14:51:52 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/04/18 14:56:27 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/04/20 12:24:51 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@
 
 typedef struct s_data
 {
-	int		numphilo;
+	int		number_of_philosophers;
 	int		time_to_die;
 	int		time_to_sleep;
 	int		time_to_eat;
-	int		numeat;
+	int		eating_done_count;
+	int		must_eat;
+	int		death;
 	t_philo	*philo;
 }	t_data;
 
