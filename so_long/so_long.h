@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcastagn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcastagn <dcastagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:43:19 by dcastagn          #+#    #+#             */
-/*   Updated: 2023/03/13 10:58:45 by dcastagn         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:54:25 by dcastagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <mlx.h>
-# include "../libft/libft.h"
-# include "./printf/ft_printf.h"
+# include "libft/libft.h"
+# include "printf/ft_printf.h"
 # include <fcntl.h>
 # include <math.h>
 # include <time.h>
